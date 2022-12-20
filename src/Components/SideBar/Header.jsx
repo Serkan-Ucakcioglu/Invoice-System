@@ -3,7 +3,7 @@ import AddInvoice from "../../Assets/AddInvoice";
 
 function Header() {
   return (
-    <header className="flex flex-col justify-center items-center border-b border-gray-200">
+    <header className="flex flex-col justify-center pb-2 items-center border-b border-gray-200 mb-4">
       <img
         className="w-[80px] h-[80px] rounded"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzF9KnRH0A3_pOqMj8exwrwCLw_G9E7rGLkA&usqp=CAU"

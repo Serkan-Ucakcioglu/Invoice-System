@@ -8,7 +8,9 @@ function SideBar() {
   return (
     <div className="w-[230px] bg-black h-screen p-5">
       <Header />
-      <Process />
+      {arr.map((top) => {
+        return <Process />;
+      })}
     </div>
   );
 }
