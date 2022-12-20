@@ -3,7 +3,7 @@ import React from "react";
 function EditSvg() {
   return (
     <svg
-      className="w-3 h-5 ml-2 cursor-pointer"
+      className="w-4  h-6 ml-2 cursor-pointer"
       version="1.1"
       id="Layer_1"
       x="0px"

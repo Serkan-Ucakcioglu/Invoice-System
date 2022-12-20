@@ -6,9 +6,9 @@ import ViewSvg from "../../Assets/ViewSvg";
 function Process() {
   return (
     <div className="flex flex-col text-white mt-4">
-      <div className="w-full bg-indigo-900 mb-2 h-9 p-2 flex items-center">
+      <div className="w-full bg-indigo-900 mb-2 h-10 p-2 flex items-center">
         <span>se</span>
-        <div className="flex ml-auto">
+        <div className="flex ml-auto items-center">
           <ViewSvg />
           <EditSvg />
           <TrashSvg />
