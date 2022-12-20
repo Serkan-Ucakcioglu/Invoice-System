@@ -11,7 +11,7 @@ function Header() {
       />
       <button
         type="button"
-        className="focus:outline-none flex flex-row  mt-4 w-3/3 text-white bg-indigo-700 hover:bg-indigo-800 font-medium text-sm px-5 py-2.5 mb-2"
+        className="focus:outline-none flex flex-row  mt-6 w-3/3 text-white bg-indigo-700 hover:bg-indigo-800 font-medium text-sm px-5 py-2.5 mb-2"
       >
         <AddInvoice />
         invoice
