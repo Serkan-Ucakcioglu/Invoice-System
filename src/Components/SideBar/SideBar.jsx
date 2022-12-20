@@ -6,11 +6,13 @@ function SideBar() {
   const arr = ["Saab", "Volvo", "BMW"];
 
   return (
-    <div className="w-[230px] bg-black h-screen p-5">
+    <div className="w-[230px] h-screen bg-gray-900 h-full p-5">
       <Header />
-      {arr.map((top) => {
-        return <Process />;
-      })}
+      <div className="h-[650px] overflow-auto scrollbar scroll-smooth">
+        {arr.map((top) => {
+          return <Process />;
+        })}
+      </div>
     </div>
   );
 }
