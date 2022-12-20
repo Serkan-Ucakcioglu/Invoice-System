@@ -1,5 +1,4 @@
 import React from "react";
-
 import Process from "./Process";
 
 function SideBar() {
