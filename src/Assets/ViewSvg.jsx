@@ -3,7 +3,7 @@ import React from "react";
 function ViewSvg() {
   return (
     <svg
-      className="w-5 h-5 ml-auto"
+      className="w-5 h-5"
       version="1.1"
       id="Capa_1"
       x="0px"

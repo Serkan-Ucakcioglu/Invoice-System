@@ -1,4 +1,5 @@
 import React from "react";
+import EditSvg from "../../Assets/EditSvg";
 import ViewSvg from "../../Assets/ViewSvg";
 
 function SideBar() {
@@ -16,7 +17,10 @@ function SideBar() {
       <div className="flex flex-col text-white mt-4">
         <div className="w-full bg-indigo-900 mb-2 h-9 p-2 flex items-center">
           <span>se</span>
-          <ViewSvg />
+          <div className="flex ml-auto">
+            <ViewSvg />
+            <EditSvg />
+          </div>
         </div>
       </div>
     </div>
