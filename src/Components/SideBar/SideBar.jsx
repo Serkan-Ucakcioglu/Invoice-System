@@ -1,5 +1,6 @@
 import React from "react";
 import EditSvg from "../../Assets/EditSvg";
+import TrashSvg from "../../Assets/TrashSvg";
 import ViewSvg from "../../Assets/ViewSvg";
 
 function SideBar() {
@@ -20,6 +21,7 @@ function SideBar() {
           <div className="flex ml-auto">
             <ViewSvg />
             <EditSvg />
+            <TrashSvg />
           </div>
         </div>
       </div>
