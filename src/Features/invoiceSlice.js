@@ -10,4 +10,5 @@ const invoiceSlice = createSlice({
   reducers: {},
 });
 
+export const selectedInvoice = (state) => state.invoiceSlice.invoice;
 export default invoiceSlice.reducer;
