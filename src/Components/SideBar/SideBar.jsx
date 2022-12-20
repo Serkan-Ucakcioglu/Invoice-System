@@ -1,7 +1,5 @@
 import React from "react";
-import EditSvg from "../../Assets/EditSvg";
-import TrashSvg from "../../Assets/TrashSvg";
-import ViewSvg from "../../Assets/ViewSvg";
+
 import Process from "./Process";
 
 function SideBar() {
