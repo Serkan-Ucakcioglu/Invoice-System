@@ -3,12 +3,12 @@ import React from "react";
 function ViewSvg() {
   return (
     <svg
-      className="w-5 h-5"
+      className="w-5 h-5 cursor-pointer mr-1"
       version="1.1"
       id="Capa_1"
       x="0px"
       y="0px"
-      fill="#fff"
+      fill="#cbd5e1"
       viewBox="0 0 80.794 80.794"
     >
       <g>

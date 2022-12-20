@@ -3,13 +3,13 @@ import React from "react";
 function EditSvg() {
   return (
     <svg
-      className="w-3 h-5 ml-2"
+      className="w-3 h-5 ml-2 cursor-pointer"
       version="1.1"
       id="Layer_1"
       x="0px"
       y="0px"
       viewBox="0 0 330 330"
-      fill="#fff"
+      fill="#cbd5e1"
     >
       <g id="XMLID_23_">
         <path
