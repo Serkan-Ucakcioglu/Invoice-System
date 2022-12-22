@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addProduct, selectedProductList } from "../invoiceSlice";
-import ProductList from "./ProductList";
-import ProductTitle from "./ProductTitle";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../invoiceSlice";
+import Product from "./Product/Product";
+import ProductTitle from "./Product/ProductTitle";
 
 function CreateInvoice() {
-  const productList = useSelector(selectedProductList);
   const arr = [
     { label: "name", input: "Müşteri adı" },
     { label: "email", input: "Email" },
@@ -26,7 +25,6 @@ function CreateInvoice() {
     };
     dispatch(addProduct(req));
   };
-  console.log(productList);
 
   return (
     <div className="flex flex-1 justify-center items-center p-5 bg-gray-800">
@@ -72,14 +70,12 @@ function CreateInvoice() {
 
           <div className="w-full flex flex-col mt-2 h-[200px]  scrollbar overflow-auto">
             <ProductTitle />
-            {productList?.map((input) => {
-              return <ProductList key={input?.id} id={input?.id} />;
-            })}
+            <Product />
           </div>
           <button
             type="button"
             onClick={add}
-            className="h-8 mt-3 rounded bg-indigo-700 text-white"
+            className="h-10 mt-3 rounded bg-indigo-700 text-white"
           >
             Ekle
           </button>

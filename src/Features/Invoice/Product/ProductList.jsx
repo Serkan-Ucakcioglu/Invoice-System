@@ -1,7 +1,7 @@
 import React from "react";
-import TrashSvg from "../../Assets/TrashSvg";
+import TrashSvg from "../../../Assets/TrashSvg";
 import { useDispatch } from "react-redux";
-import { deleteProduct } from "../invoiceSlice";
+import { deleteProduct } from "../../invoiceSlice";
 
 function ProductList({ id }) {
   const dispatch = useDispatch();
