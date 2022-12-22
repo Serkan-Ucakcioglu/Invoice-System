@@ -4,7 +4,8 @@ const initialState = {
   invoice: [],
   productList: [
     {
-      name: "se",
+      id: 1,
+      name: "",
       quantity: "",
       price: "",
     },
@@ -18,10 +19,19 @@ const invoiceSlice = createSlice({
     addProduct: (state, { payload }) => {
       state.productList.push(payload);
     },
+    deleteProduct: (state, { payload }) => {
+      state.productList = state.productList.filter((product) => {
+        if (product.id !== 1) {
+          return product.id !== payload;
+        } else {
+          return product;
+        }
+      });
+    },
   },
 });
 
 export const selectedProductList = (state) => state.invoiceSlice.productList;
 export const selectedInvoice = (state) => state.invoiceSlice.invoice;
-export const { addProduct } = invoiceSlice.actions;
+export const { addProduct, deleteProduct } = invoiceSlice.actions;
 export default invoiceSlice.reducer;

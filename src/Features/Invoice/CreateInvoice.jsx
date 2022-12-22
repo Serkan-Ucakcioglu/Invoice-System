@@ -26,6 +26,7 @@ function CreateInvoice() {
     };
     dispatch(addProduct(req));
   };
+  console.log(productList);
 
   return (
     <div className="flex flex-1 justify-center items-center p-5 bg-gray-800">
@@ -71,8 +72,8 @@ function CreateInvoice() {
 
           <div className="w-full flex flex-col mt-2 h-[200px]  scrollbar overflow-auto">
             <ProductTitle />
-            {productList?.map((input, i) => {
-              return <ProductList key={i} />;
+            {productList?.map((input) => {
+              return <ProductList key={input?.id} id={input?.id} />;
             })}
           </div>
           <button
