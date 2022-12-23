@@ -16,6 +16,7 @@ function Bill() {
         <span>kdv:  ${kdv || 0}</span>
         <span>totals: ${totals + kdv || 0}</span>
       </div>
+      <input type="submit" />
     </div>
   );
 }

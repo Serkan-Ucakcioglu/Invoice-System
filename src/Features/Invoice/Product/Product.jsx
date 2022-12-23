@@ -3,19 +3,12 @@ import { useSelector } from "react-redux";
 import { selectedProductList } from "../../invoiceSlice";
 import ProductList from "./ProductList";
 
-function Product({ watch, register }) {
+function Product() {
   const productList = useSelector(selectedProductList);
   return (
     <>
       {productList?.map((input) => {
-        return (
-          <ProductList
-            key={input?.id}
-            id={input?.id}
-            watch={watch}
-            register={register}
-          />
-        );
+        return <ProductList key={input?.id} id={input?.id} />;
       })}
     </>
   );
