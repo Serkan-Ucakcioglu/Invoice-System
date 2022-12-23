@@ -46,13 +46,7 @@ function CreateInvoice() {
             <ProductTitle />
             <Product />
           </div>
-          <button
-            type="button"
-            onClick={add}
-            className="h-10 mt-3 rounded bg-indigo-700 text-white"
-          >
-            Ekle
-          </button>
+
           <Bill />
         </form>
       </div>
