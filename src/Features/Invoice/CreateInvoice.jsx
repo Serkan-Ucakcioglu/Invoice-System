@@ -5,6 +5,7 @@ import Bill from "./Bill/Bill";
 import Product from "./Product/Product";
 import ProductTitle from "./Product/ProductTitle";
 import { useForm } from "react-hook-form";
+import Customer from "./Customer/Customer";
 
 function CreateInvoice() {
   const {
@@ -18,15 +19,7 @@ function CreateInvoice() {
   const onSubmit = (data) => {
     console.log(data);
   };
-  const arr = [
-    { label: "name", input: "Müşteri adı" },
-    { label: "email", input: "Email" },
-  ];
-  const arr2 = [
-    { label: "city", input: "City" },
-    { label: "postcode", input: "Post Code" },
-    { label: "country", input: "Country" },
-  ];
+
   const dispatch = useDispatch();
 
   const add = () => {
@@ -47,42 +40,7 @@ function CreateInvoice() {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col text-white"
         >
-          <h1 className="text-white text-left text-2xl text-semibold">
-            Fatura Bilgileri
-          </h1>
-          <div className="user_info mt-2 flex flex-col">
-            {arr?.map((invoice) => {
-              return (
-                <div className="flex flex-col mt-2">
-                  <label htmlFor={invoice.label} className="text-white">
-                    {invoice.input}
-                  </label>
-                  <input
-                    id={invoice.label}
-                    type="text"
-                    className="focus:outline-none bg-gray-700 text-white pl-1 rounded h-8"
-                  />
-                </div>
-              );
-            })}
-
-            <div className="flex flex-row justify-between mt-2">
-              {arr2?.map((invoice) => {
-                return (
-                  <div className="flex flex-col">
-                    <label htmlFor={invoice.label} className="text-white">
-                      {invoice.input}
-                    </label>
-                    <input
-                      id={invoice.label}
-                      type="text"
-                      className="focus:outline-none bg-slate-700 text-white rounded h-8 pl-1"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <Customer />
           <h1 className="mt-2 text-white text-2xl">Fatura Listesi</h1>
           <div className="w-full flex flex-col mt-2 h-[200px]  scrollbar overflow-auto">
             <ProductTitle />
