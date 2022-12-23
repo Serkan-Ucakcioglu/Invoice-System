@@ -4,8 +4,20 @@ import { addProduct } from "../invoiceSlice";
 import Bill from "./Bill/Bill";
 import Product from "./Product/Product";
 import ProductTitle from "./Product/ProductTitle";
+import { useForm } from "react-hook-form";
 
 function CreateInvoice() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   const arr = [
     { label: "name", input: "Müşteri adı" },
     { label: "email", input: "Email" },
@@ -31,7 +43,10 @@ function CreateInvoice() {
   return (
     <div className="flex flex-1 justify-center items-center p-5 bg-gray-800">
       <div className="w-[600px] h-[800px] bg-gray-900 rounded p-4">
-        <form className="flex flex-col text-white">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col text-white"
+        >
           <h1 className="text-white text-left text-2xl text-semibold">
             Fatura Bilgileri
           </h1>
