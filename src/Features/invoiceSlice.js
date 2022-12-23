@@ -6,10 +6,12 @@ const initialState = {
     {
       id: 1,
       name: "",
-      quantity: "",
-      price: "",
+      quantity: 0,
+      price: 0,
+      total: 0,
     },
   ],
+  total: 0,
 };
 
 const invoiceSlice = createSlice({
@@ -28,10 +30,20 @@ const invoiceSlice = createSlice({
         }
       });
     },
+    updateProduct: (state, { payload }) => {
+      state.productList = state.productList.map((product) => {
+        if (product.id === payload.id) {
+          return { ...payload };
+        } else {
+          return product;
+        }
+      });
+    },
   },
 });
 
 export const selectedProductList = (state) => state.invoiceSlice.productList;
 export const selectedInvoice = (state) => state.invoiceSlice.invoice;
-export const { addProduct, deleteProduct } = invoiceSlice.actions;
+export const { updateProduct, addTotal, addProduct, deleteProduct } =
+  invoiceSlice.actions;
 export default invoiceSlice.reducer;

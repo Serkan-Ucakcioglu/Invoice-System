@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../invoiceSlice";
+import Bill from "./Bill/Bill";
 import Product from "./Product/Product";
 import ProductTitle from "./Product/ProductTitle";
 
@@ -19,16 +20,17 @@ function CreateInvoice() {
   const add = () => {
     const req = {
       id: Date.now(),
-      name: "2",
-      quantity: "3",
-      price: "4",
+      name: "",
+      quantity: 0,
+      price: 0,
+      total: 0,
     };
     dispatch(addProduct(req));
   };
 
   return (
     <div className="flex flex-1 justify-center items-center p-5 bg-gray-800">
-      <div className="w-[600px] h-[600px] bg-gray-900 rounded p-4">
+      <div className="w-[600px] h-[800px] bg-gray-900 rounded p-4">
         <form className="flex flex-col text-white">
           <h1 className="text-white text-left text-2xl text-semibold">
             Fatura Bilgileri
@@ -67,7 +69,6 @@ function CreateInvoice() {
             </div>
           </div>
           <h1 className="mt-2 text-white text-2xl">Fatura Listesi</h1>
-
           <div className="w-full flex flex-col mt-2 h-[200px]  scrollbar overflow-auto">
             <ProductTitle />
             <Product />
@@ -79,6 +80,7 @@ function CreateInvoice() {
           >
             Ekle
           </button>
+          <Bill />
         </form>
       </div>
     </div>

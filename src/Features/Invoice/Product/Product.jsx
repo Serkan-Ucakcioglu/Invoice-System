@@ -5,10 +5,8 @@ import ProductList from "./ProductList";
 
 function Product() {
   const productList = useSelector(selectedProductList);
-
   return (
     <>
-      {" "}
       {productList?.map((input) => {
         return <ProductList key={input?.id} id={input?.id} />;
       })}
