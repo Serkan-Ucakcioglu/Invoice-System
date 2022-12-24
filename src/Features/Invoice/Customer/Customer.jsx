@@ -1,5 +1,4 @@
 import React from "react";
-import useCustomer from "../../../Hooks/useCustomer";
 import CityInfo from "./CityInfo";
 import Info from "./Info";
 
