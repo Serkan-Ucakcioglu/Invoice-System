@@ -1,5 +1,6 @@
 import React from "react";
 import useCustomer from "../../../Hooks/useCustomer";
+import CityInfo from "./CityInfo";
 import Info from "./Info";
 
 function Customer() {
@@ -9,8 +10,10 @@ function Customer() {
         Fatura Bilgileri
       </h1>
       <div className="user_info mt-2 flex flex-col">
-        <Info /> info
-        <div className="flex flex-row justify-between mt-2"></div>
+        <Info />
+        <div className="flex flex-row justify-between mt-2">
+          <CityInfo />
+        </div>
       </div>
     </>
   );
