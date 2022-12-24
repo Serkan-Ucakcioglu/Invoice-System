@@ -1,14 +1,14 @@
 import TrashSvg from "../../../Assets/TrashSvg";
 import { useDispatch } from "react-redux";
 import { updateProduct } from "../../invoiceSlice";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray, useFormContext } from "react-hook-form";
 import { useEffect } from "react";
 import AddBtn from "./AddBtn";
+import ProductInput from "./ProductInput";
 
 function ProductList({ id }) {
   const dispatch = useDispatch();
-  const { watch, control, register, handleSubmit } = useForm();
-
+  const { watch, control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "test",
@@ -26,44 +26,15 @@ function ProductList({ id }) {
     onSubmit();
   }, [total]);
 
+  useEffect(() => {
+    append({ product: "", quantity: 0, price: 0 });
+  }, []);
+
   return (
     <>
-      <div
-        onClick={handleSubmit(onSubmit)}
-        className="flex flex-col scrollbar overflow-auto"
-      >
+      <div className="flex flex-col scrollbar overflow-auto">
         {fields?.map((field, index) => {
-          return (
-            <div key={field.id} className="flex items-center h-8  mt-2 ">
-              <input
-                id="ürün"
-                {...register(`test.${index}.product`)}
-                type="text"
-                className="pl-2 mr-2 bg-gray-700 h-8 rounded outline-none"
-              />
-              <input
-                id="adet"
-                type="number"
-                {...register(`test.${index}.quantity`)}
-                className="mr-2 pl-2 w-12 bg-gray-700 h-8 rounded outline-none"
-              />
-              <input
-                id="price"
-                type="number"
-                {...register(`test.${index}.price`)}
-                className="mr-2 pl-2 w-12 px-2 bg-gray-700 h-8 rounded outline-none"
-              />
-
-              <div className="text-white">
-                $
-                {watch("test")[index].quantity * watch("test")[index].price ||
-                  0}
-              </div>
-              <div className="ml-auto inline" onClick={() => remove(index)}>
-                <TrashSvg />
-              </div>
-            </div>
-          );
+          return <ProductInput key={field?.id} remove={remove} index={index} />;
         })}
       </div>
       <AddBtn append={append} />
