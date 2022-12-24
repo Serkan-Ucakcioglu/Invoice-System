@@ -25,8 +25,6 @@ const invoiceSlice = createSlice({
       state.productList = state.productList.filter((product) => {
         if (product.id !== 1) {
           return product.id !== payload;
-        } else {
-          return product;
         }
       });
     },

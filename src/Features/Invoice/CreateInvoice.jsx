@@ -42,11 +42,10 @@ function CreateInvoice() {
         >
           <Customer />
           <h1 className="mt-2 text-white text-2xl">Fatura Listesi</h1>
-          <div className="w-full flex flex-col mt-2 h-[200px]  scrollbar overflow-auto">
+          <div className="w-full flex flex-col mt-2 h-[280px]  ">
             <ProductTitle />
             <Product />
           </div>
-
           <Bill />
         </form>
       </div>
