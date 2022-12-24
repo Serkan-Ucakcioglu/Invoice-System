@@ -11,7 +11,6 @@ const initialState = {
       total: 0,
     },
   ],
-  total: 0,
 };
 
 const invoiceSlice = createSlice({
