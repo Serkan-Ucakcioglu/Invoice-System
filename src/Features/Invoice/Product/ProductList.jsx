@@ -1,6 +1,6 @@
 import TrashSvg from "../../../Assets/TrashSvg";
 import { useDispatch } from "react-redux";
-import { deleteProduct, updateProduct } from "../../invoiceSlice";
+import { updateProduct } from "../../invoiceSlice";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useEffect } from "react";
 import AddBtn from "./AddBtn";
@@ -14,7 +14,6 @@ function ProductList({ id }) {
     name: "test",
   });
 
-  const test = watch("test");
   const total = watch("test")?.reduce((acc, arr) => {
     return acc + arr.quantity * arr.price;
   }, 0);
@@ -26,10 +25,6 @@ function ProductList({ id }) {
   useEffect(() => {
     onSubmit();
   }, [total]);
-
-  const deleteProducts = () => {
-    dispatch(deleteProduct(id));
-  };
 
   return (
     <>

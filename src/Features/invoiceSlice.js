@@ -18,13 +18,6 @@ const invoiceSlice = createSlice({
   name: "invoiceSlice",
   initialState,
   reducers: {
-    deleteProduct: (state, { payload }) => {
-      state.productList = state.productList.filter((product) => {
-        if (product.id !== 1) {
-          return product.id !== payload;
-        }
-      });
-    },
     updateProduct: (state, { payload }) => {
       state.productList = state.productList.map((product) => {
         if (product.id === payload.id) {
