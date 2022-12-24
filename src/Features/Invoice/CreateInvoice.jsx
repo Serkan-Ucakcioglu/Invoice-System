@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../invoiceSlice";
 import Bill from "./Bill/Bill";
 import Product from "./Product/Product";
 import ProductTitle from "./Product/ProductTitle";
@@ -18,19 +16,6 @@ function CreateInvoice() {
 
   const onSubmit = (data) => {
     console.log(data);
-  };
-
-  const dispatch = useDispatch();
-
-  const add = () => {
-    const req = {
-      id: Date.now(),
-      name: "",
-      quantity: 0,
-      price: 0,
-      total: 0,
-    };
-    dispatch(addProduct(req));
   };
 
   return (
