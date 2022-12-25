@@ -8,6 +8,7 @@ function ProductInput({ field, remove, index }) {
     formState: { errors },
     watch,
   } = useFormContext();
+  const test = watch("test");
   return (
     <div className="flex items-center h-8  mt-2 ">
       <input
@@ -30,7 +31,9 @@ function ProductInput({ field, remove, index }) {
         type="text"
         className="pl-2 mr-2 bg-gray-700 h-8 rounded outline-none"
       />
-      <span className="text-red-500 text-left">{errors?.product?.message}</span>
+      <span className="text-red-500 text-left">
+        {errors?.test[index]?.product?.message}
+      </span>
       <input
         id="adet"
         type="number"
