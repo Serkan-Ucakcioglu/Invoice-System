@@ -11,10 +11,7 @@ function CreateInvoice() {
   const { handleSubmit } = useFormContext();
   const dispatch = useDispatch();
   const onSubmit = (data) => {
-    const req = {
-      id: Date.now(),
-      data: data,
-    };
+    data.id = Date.now();
     dispatch(addProduct(data));
   };
   return (

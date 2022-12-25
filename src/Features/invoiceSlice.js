@@ -10,7 +10,14 @@ const invoiceSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, { payload }) => {
-      state.productList.push(payload);
+      const check = state.productList.find(
+        (invoice) => invoice.email === payload.email
+      );
+      if (!check) {
+        state.productList.push(payload);
+      } else {
+        alert("var bundan");
+      }
     },
     updateProduct: (state, { payload }) => {
       state.productList = state.productList.map((product) => {
