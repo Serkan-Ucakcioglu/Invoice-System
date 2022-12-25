@@ -4,8 +4,8 @@ import { selectedProductList } from "../../invoiceSlice";
 
 function Bill() {
   const productList = useSelector(selectedProductList);
-  const productTotal = productList?.map((num) => num.total);
   console.log(productList);
+  const productTotal = productList?.map((num) => num.total);
   const total = Number(productTotal);
   const kdv = (total / 100) * 18;
   return (
@@ -14,10 +14,9 @@ function Bill() {
         <h1>Billing</h1>
         <div className="flex flex-col items-end">
           <span>Price: ${total || 0}</span>
-          <span>Kdv:  ${kdv || 0}</span>
+          <span>Kdv %18:  ${kdv || 0}</span>
           <span>Total: ${total + kdv || 0}</span>
         </div>
-        <input type="submit" />
       </div>
     </>
   );

@@ -13,19 +13,16 @@ function ProductList({ id }) {
     name: "test",
   });
 
-  const total = useMemo(
-    () =>
-      watch("test")?.reduce((acc, arr) => {
-        return acc + arr.quantity * arr.price;
-      }, 0),
-    [watch("test")]
-  );
+  const total = watch("test")?.reduce((acc, arr) => {
+    return acc + arr.quantity * arr.price;
+  }, 0);
 
   const onSubmit = (data) => {
-    dispatch(updateProduct({ id, data, total }));
+    dispatch(updateProduct({ id, total }));
   };
 
   useEffect(() => {
+    console.log("calıstı");
     onSubmit();
   }, [total]);
 

@@ -2,21 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   invoice: [],
-  productList: [
-    {
-      id: 1,
-      name: "",
-      quantity: 0,
-      price: 0,
-      total: 0,
-    },
-  ],
+  productList: [],
 };
 
 const invoiceSlice = createSlice({
   name: "invoiceSlice",
   initialState,
   reducers: {
+    addProduct: (state, { payload }) => {
+      state.productList.push(payload);
+    },
     updateProduct: (state, { payload }) => {
       state.productList = state.productList.map((product) => {
         if (product.id === payload.id) {
@@ -31,5 +26,6 @@ const invoiceSlice = createSlice({
 
 export const selectedProductList = (state) => state.invoiceSlice.productList;
 export const selectedInvoice = (state) => state.invoiceSlice.invoice;
-export const { updateProduct, addTotal, deleteProduct } = invoiceSlice.actions;
+export const { addProduct, updateProduct, addTotal, deleteProduct } =
+  invoiceSlice.actions;
 export default invoiceSlice.reducer;
