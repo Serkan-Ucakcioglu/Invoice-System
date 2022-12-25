@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   invoice: [],
-  productList: [],
+  productList: JSON.parse(localStorage.getItem("invoiceList")) || [],
 };
 
 const invoiceSlice = createSlice({
@@ -15,6 +15,7 @@ const invoiceSlice = createSlice({
       );
       if (!check) {
         state.productList.push(payload);
+        localStorage.setItem("invoiceList", JSON.stringify(state.productList));
       } else {
         alert("var bundan");
       }
