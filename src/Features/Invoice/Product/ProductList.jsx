@@ -34,6 +34,7 @@ function ProductList({ id }) {
     <>
       <div className="flex flex-col scrollbar overflow-auto">
         {fields?.map((field, index) => {
+          console.log(index, "i");
           return <ProductInput key={field?.id} remove={remove} index={index} />;
         })}
       </div>
