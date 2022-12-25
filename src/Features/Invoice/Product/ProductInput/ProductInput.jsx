@@ -1,5 +1,5 @@
 import React from "react";
-import TrashSvg from "../../../Assets/TrashSvg";
+import TrashSvg from "../../../../Assets/TrashSvg";
 import { useFormContext } from "react-hook-form";
 
 function ProductInput({ field, remove, index }) {

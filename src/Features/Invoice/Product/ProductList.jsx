@@ -1,10 +1,9 @@
-import TrashSvg from "../../../Assets/TrashSvg";
 import { useDispatch } from "react-redux";
 import { updateProduct } from "../../invoiceSlice";
-import { useForm, useFieldArray, useFormContext } from "react-hook-form";
-import { useEffect } from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import { useEffect, useMemo } from "react";
 import AddBtn from "./AddBtn";
-import ProductInput from "./ProductInput";
+import ProductInput from "./ProductInput/ProductInput";
 
 function ProductList({ id }) {
   const dispatch = useDispatch();
@@ -14,9 +13,13 @@ function ProductList({ id }) {
     name: "test",
   });
 
-  const total = watch("test")?.reduce((acc, arr) => {
-    return acc + arr.quantity * arr.price;
-  }, 0);
+  const total = useMemo(
+    () =>
+      watch("test")?.reduce((acc, arr) => {
+        return acc + arr.quantity * arr.price;
+      }, 0),
+    [watch("test")]
+  );
 
   const onSubmit = (data) => {
     dispatch(updateProduct({ id, data, total }));
@@ -34,7 +37,6 @@ function ProductList({ id }) {
     <>
       <div className="flex flex-col scrollbar overflow-auto">
         {fields?.map((field, index) => {
-          console.log(index, "i");
           return <ProductInput key={field?.id} remove={remove} index={index} />;
         })}
       </div>
