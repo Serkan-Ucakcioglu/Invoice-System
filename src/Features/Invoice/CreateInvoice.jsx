@@ -8,11 +8,12 @@ import { addProduct } from "../invoiceSlice";
 import { useDispatch } from "react-redux";
 
 function CreateInvoice() {
-  const { handleSubmit } = useFormContext();
+  const { handleSubmit, reset } = useFormContext();
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     data.id = Date.now();
     dispatch(addProduct(data));
+    reset();
   };
   return (
     <div className="flex flex-1 justify-center items-center p-5 bg-gray-800">
