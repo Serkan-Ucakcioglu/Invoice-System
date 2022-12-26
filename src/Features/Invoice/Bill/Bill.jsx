@@ -11,7 +11,6 @@ function Bill() {
   const productTotal = data?.reduce((acc, obj) => {
     return acc + obj.quantity * obj.price;
   }, 0);
-  console.log(productTotal, "productTotal");
   const total = Number(productTotal);
   const kdv = (total / 100) * 18;
   return (
