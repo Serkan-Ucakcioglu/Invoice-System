@@ -1,11 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectedProductList } from "../../invoiceSlice";
+import { useFormContext } from "react-hook-form";
 
 function Bill() {
+  const { watch } = useFormContext();
   const productList = useSelector(selectedProductList);
-  console.log(productList);
-  const productTotal = productList?.map((num) => num.total);
+  const data = watch("test");
+
+  const productTotal = data?.reduce((acc, obj) => {
+    return acc + obj.quantity * obj.price;
+  }, 0);
+  console.log(productTotal, "productTotal");
   const total = Number(productTotal);
   const kdv = (total / 100) * 18;
   return (
