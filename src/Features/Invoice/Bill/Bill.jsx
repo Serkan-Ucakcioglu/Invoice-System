@@ -1,6 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectedProductList } from "../../invoiceSlice";
 import { useFormContext } from "react-hook-form";
 
 function Bill() {
