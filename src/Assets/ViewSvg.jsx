@@ -1,8 +1,15 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { selectProduct } from "../Features/invoiceSlice";
 
-function ViewSvg() {
+function ViewSvg({ id }) {
+  const dispatch = useDispatch();
+  const onAdd = () => {
+    dispatch(selectProduct(id));
+  };
+
   return (
     <svg
+      onClick={onAdd}
       className="w-5 h-5 cursor-pointer mr-1"
       version="1.1"
       id="Capa_1"

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   invoice: [],
   productList: JSON.parse(localStorage.getItem("invoiceList")) || [],
+  selecteds: {},
 };
 
 const invoiceSlice = createSlice({
@@ -17,23 +18,24 @@ const invoiceSlice = createSlice({
         state.productList.push(payload);
         localStorage.setItem("invoiceList", JSON.stringify(state.productList));
       } else {
-        alert("var bundan");
+        return { ...payload };
       }
     },
-    updateProduct: (state, { payload }) => {
-      state.productList = state.productList.map((product) => {
-        if (product.id === payload.id) {
-          return { ...payload };
-        } else {
-          return product;
-        }
-      });
+    selectProduct: (state, { payload }) => {
+      const test = state.productList.filter((obj) => obj.id === payload);
+      state.selecteds = test;
     },
   },
 });
 
+export const selectedObj = (state) => state.invoiceSlice.selecteds;
 export const selectedProductList = (state) => state.invoiceSlice.productList;
 export const selectedInvoice = (state) => state.invoiceSlice.invoice;
-export const { addProduct, updateProduct, addTotal, deleteProduct } =
-  invoiceSlice.actions;
+export const {
+  selectProduct,
+  addProduct,
+  updateProduct,
+  addTotal,
+  deleteProduct,
+} = invoiceSlice.actions;
 export default invoiceSlice.reducer;

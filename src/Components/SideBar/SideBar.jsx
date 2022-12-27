@@ -2,10 +2,12 @@ import React from "react";
 import Header from "./Header";
 import Process from "./Process";
 import { useSelector } from "react-redux";
-import { selectedProductList } from "../../Features/invoiceSlice";
+import { selectedObj, selectedProductList } from "../../Features/invoiceSlice";
 
 function SideBar() {
   const productList = useSelector(selectedProductList);
+  const selecteds = useSelector(selectedObj);
+  console.log(selecteds, "selectid");
 
   return (
     <div className="w-[230px] h-screen bg-gray-900 h-full p-5">
