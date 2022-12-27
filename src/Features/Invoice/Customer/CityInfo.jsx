@@ -46,6 +46,11 @@ function CityInfo() {
           {...register("postcode", {
             required: "required!",
             min: 0,
+            minLength: {
+              value: 4,
+              message: "Minimum length 4",
+            },
+            maxLength: { value: 10, message: "Maximum length 10!" },
             pattern: {
               value: /[^a-zA-Z]/g,
               message: "Only Numbers!",
