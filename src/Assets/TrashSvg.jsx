@@ -1,8 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../Features/invoiceSlice";
 
-function TrashSvg() {
+function TrashSvg({ id }) {
+  const dispatch = useDispatch();
+
+  const deleteProducts = () => {
+    dispatch(deleteProduct(id));
+  };
   return (
     <svg
+      onClick={deleteProducts}
       viewBox="0 0 30 30"
       className="w-5 h-6 ml-2 cursor-pointer"
       fill="#cbd5e1"

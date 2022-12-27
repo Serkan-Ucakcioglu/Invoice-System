@@ -16,13 +16,13 @@ function CreateInvoice() {
     dispatch(clearSelect());
     if (selecteds?.id) {
       data.id = selecteds.id;
+      reset({
+        data: [],
+      });
     } else {
       data.id = Date.now();
     }
     dispatch(addProduct(data));
-    reset({
-      data: [],
-    });
     reset();
   };
   return (

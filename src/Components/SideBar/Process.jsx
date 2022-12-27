@@ -10,8 +10,7 @@ function Process({ invoice, id }) {
         <span>{invoice?.name?.substring(0, 8)}</span>
         <div className="flex ml-auto items-center">
           <ViewSvg id={id} />
-          <EditSvg />
-          <TrashSvg />
+          <TrashSvg id={id} />
         </div>
       </div>
     </div>
