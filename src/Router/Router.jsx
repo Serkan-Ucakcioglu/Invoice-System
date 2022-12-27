@@ -10,7 +10,6 @@ export const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<CreateInvoice />} />
-      <Route path="/:id" element={<CreateInvoice />} />
     </Route>
   )
 );
