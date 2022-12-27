@@ -1,11 +1,14 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { selectedObj } from "../../invoiceSlice";
 
 function CityInfo() {
   const {
     register,
     formState: { errors },
   } = useFormContext();
+  const selecteds = useSelector(selectedObj);
   return (
     <div className="flex justify-between">
       <div className="flex flex-col">
@@ -13,6 +16,7 @@ function CityInfo() {
           City
         </label>
         <input
+          defaultValue={selecteds?.city}
           {...register("city", {
             required: "required!",
             minLength: {
@@ -38,6 +42,7 @@ function CityInfo() {
           Post Code
         </label>
         <input
+          defaultValue={selecteds?.postcode}
           {...register("postcode", {
             required: "required!",
             min: 0,
@@ -58,6 +63,7 @@ function CityInfo() {
           Country
         </label>
         <input
+          defaultValue={selecteds?.country}
           {...register("country", {
             required: "required!",
             minLength: {

@@ -23,7 +23,8 @@ const invoiceSlice = createSlice({
     },
     selectProduct: (state, { payload }) => {
       const test = state.productList.filter((obj) => obj.id === payload);
-      state.selecteds = test;
+      const test2 = test.reduce((acc, arr) => (acc = arr), {});
+      state.selecteds = test2;
     },
   },
 });

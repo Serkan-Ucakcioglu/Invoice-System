@@ -1,11 +1,15 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { selectedObj } from "../../invoiceSlice";
 
 function Info() {
   const {
     register,
     formState: { errors },
   } = useFormContext();
+  const selecteds = useSelector(selectedObj);
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-col">
@@ -13,6 +17,7 @@ function Info() {
           Müşteri Adı
         </label>
         <input
+          defaultValue={selecteds?.name}
           {...register("name", {
             required: "required!",
             minLength: {
@@ -38,6 +43,7 @@ function Info() {
           Email
         </label>
         <input
+          defaultValue={selecteds?.email}
           {...register("email", {
             required: "required!",
             minLength: {
