@@ -1,7 +1,6 @@
 import React from "react";
 import TrashSvg from "../../../../Assets/TrashSvg";
 import { useFormContext } from "react-hook-form";
-
 function ProductInput({ field, remove, index }) {
   const {
     register,
@@ -10,7 +9,6 @@ function ProductInput({ field, remove, index }) {
     watch,
   } = useFormContext();
   const test = watch("test");
-
   return (
     <div className="flex items-center h-8 mt-8">
       <div className="flex flex-col">
@@ -33,6 +31,7 @@ function ProductInput({ field, remove, index }) {
           })}
           control={control}
           type="text"
+          defaultValue={field?.product}
           className="pl-2 mr-2 bg-gray-700 h-8 rounded outline-none"
         />
         <span className="text-red-500 text-left">
@@ -83,6 +82,7 @@ function ProductInput({ field, remove, index }) {
               value: /[0-9][^a-zA-Z]/g,
             },
           })}
+          defaultValue={field?.price}
           className="mr-2 pl-2 w-12 px-2 bg-gray-700 h-8 rounded outline-none"
         />
         <span className="text-red-500 text-left">

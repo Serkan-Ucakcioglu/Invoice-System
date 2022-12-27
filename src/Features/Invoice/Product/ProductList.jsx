@@ -1,23 +1,36 @@
 import { useFieldArray, useFormContext } from "react-hook-form";
-import { useEffect } from "react";
 import AddBtn from "./AddBtn";
 import ProductInput from "./ProductInput/ProductInput";
+import { useSelector } from "react-redux";
+import { selectedObj } from "../../invoiceSlice";
+import { useEffect } from "react";
 
 function ProductList() {
-  const { control } = useFormContext();
+  const selecteds = useSelector(selectedObj);
+
+  const { control, reset } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "test",
   });
-  useEffect(() => {
-    append({ product: "", quantity: 0, price: 0 });
-  }, []);
 
+  useEffect(() => {
+    reset({
+      test: selecteds?.test,
+    });
+  }, [selecteds?.name]);
   return (
     <>
       <div className="flex flex-col scrollbar overflow-auto">
-        {fields?.map((field, index) => {
-          return <ProductInput key={field?.id} remove={remove} index={index} />;
+        {fields?.map((item, index) => {
+          return (
+            <ProductInput
+              field={item}
+              key={item?.id}
+              remove={remove}
+              index={index}
+            />
+          );
         })}
       </div>
       <AddBtn append={append} />

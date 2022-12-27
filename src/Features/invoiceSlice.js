@@ -11,15 +11,20 @@ const invoiceSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, { payload }) => {
-      const check = state.productList.find(
+      let check = state.productList.find(
         (invoice) => invoice.email === payload.email
       );
       if (!check) {
         state.productList.push(payload);
-        localStorage.setItem("invoiceList", JSON.stringify(state.productList));
       } else {
-        return { ...payload };
+        state.productList = state.productList.map((obj) => {
+          if (obj.id === payload.id) {
+            return { ...payload };
+          }
+          return obj;
+        });
       }
+      localStorage.setItem("invoiceList", JSON.stringify(state.productList));
     },
     selectProduct: (state, { payload }) => {
       const selectedID = state?.productList.filter((obj) => obj.id === payload);

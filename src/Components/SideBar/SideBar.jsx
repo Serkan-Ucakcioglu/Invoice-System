@@ -6,13 +6,14 @@ import { selectedProductList } from "../../Features/invoiceSlice";
 
 function SideBar() {
   const productList = useSelector(selectedProductList);
-
   return (
     <div className="w-[230px] h-screen bg-gray-900 h-full p-5">
       <Header />
       <div className="h-[650px] overflow-auto scrollbar scroll-smooth">
         {productList?.map((invoice) => {
-          return <Process key={invoice?.id} invoice={invoice} />;
+          return (
+            <Process key={invoice?.id} id={invoice?.id} invoice={invoice} />
+          );
         })}
       </div>
     </div>
