@@ -2,7 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   invoice: [],
-  productList: JSON.parse(localStorage.getItem("invoiceList")) || [],
+  productList: JSON.parse(localStorage.getItem("invoiceList")) || [
+    {
+      data: [{ product: "ahmet", quantity: "30", price: "30" }],
+      name: "serkan2b23c",
+      email: "serkanuckc06@gmail.com",
+      city: "ahmet",
+      postcode: "0823",
+      country: "türkiye",
+      id: 1672086764674,
+    },
+    {
+      data: [{ product: "testasda", quantity: "23", price: "22" }],
+      name: "testedw",
+      email: "testas12q@gmail.com",
+      city: "testasd",
+      postcode: "9999",
+      country: "test",
+      id: 1672086986508,
+    },
+  ],
   selecteds: {},
 };
 
