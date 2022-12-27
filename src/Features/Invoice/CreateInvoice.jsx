@@ -21,7 +21,7 @@ function CreateInvoice() {
     }
     dispatch(addProduct(data));
     reset({
-      test: [],
+      data: [],
     });
     reset();
   };

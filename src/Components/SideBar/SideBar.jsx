@@ -6,6 +6,8 @@ import { selectedProductList } from "../../Features/invoiceSlice";
 
 function SideBar() {
   const productList = useSelector(selectedProductList);
+  console.log(productList);
+
   return (
     <div className="w-[230px] h-screen bg-gray-900 h-full p-5">
       <Header />

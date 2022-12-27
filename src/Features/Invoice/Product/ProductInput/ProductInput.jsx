@@ -8,13 +8,13 @@ function ProductInput({ field, remove, index }) {
     formState: { errors },
     watch,
   } = useFormContext();
-  const test = watch("test");
+
   return (
     <div className="flex items-center h-8 mt-8">
       <div className="flex flex-col">
         <input
           id="ürün"
-          {...register(`test[${index}].product`, {
+          {...register(`data[${index}].product`, {
             required: "required!",
             minLength: {
               value: 5,
@@ -35,14 +35,14 @@ function ProductInput({ field, remove, index }) {
           className="pl-2 mr-2 bg-gray-700 h-8 rounded outline-none"
         />
         <span className="text-red-500 text-left">
-          {errors.test?.[index]?.product?.message}
+          {errors.data?.[index]?.product?.message}
         </span>
       </div>
       <div className="flex flex-col">
         <input
           id="adet"
           type="number"
-          {...register(`test.${index}.quantity`, {
+          {...register(`data.${index}.quantity`, {
             required: "required!",
             min: {
               value: 1,
@@ -60,7 +60,7 @@ function ProductInput({ field, remove, index }) {
         />
         <span className="text-red-500 text-left">
           {" "}
-          {errors.test?.[index]?.quantity?.message}
+          {errors.data?.[index]?.quantity?.message}
         </span>
       </div>
       <div className="flex flex-col">
@@ -68,7 +68,7 @@ function ProductInput({ field, remove, index }) {
         <input
           id="price"
           type="number"
-          {...register(`test.${index}.price`, {
+          {...register(`data.${index}.price`, {
             required: "required!",
             min: {
               value: 10,
@@ -87,12 +87,12 @@ function ProductInput({ field, remove, index }) {
         />
         <span className="text-red-500 text-left">
           {" "}
-          {errors.test?.[index]?.price?.message}
+          {errors.data?.[index]?.price?.message}
         </span>
       </div>
 
       <div className="text-white">
-        ${watch("test")[index].quantity * watch("test")[index].price || ""}
+        ${watch("data")[index].quantity * watch("data")[index].price || ""}
       </div>
       <div className="ml-auto inline" onClick={() => remove(index)}>
         <TrashSvg />

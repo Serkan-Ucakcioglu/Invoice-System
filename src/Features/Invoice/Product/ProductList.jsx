@@ -10,13 +10,13 @@ function ProductList() {
   const { control, reset } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
+    name: "data",
   });
 
   useEffect(() => {
     if (selecteds.name) {
       reset({
-        test: selecteds.test,
+        data: selecteds.data,
       });
     }
   }, [selecteds.name]);
