@@ -4,24 +4,25 @@ import Product from "./Product/Product";
 import ProductTitle from "./Product/ProductTitle";
 import { useFormContext } from "react-hook-form";
 import Customer from "./Customer/Customer";
-import { addProduct, selectedObj } from "../invoiceSlice";
+import { addProduct, clearSelect, selectedObj } from "../invoiceSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function CreateInvoice() {
-  const { handleSubmit, reset, watch } = useFormContext();
+  const { handleSubmit, reset } = useFormContext();
   const dispatch = useDispatch();
-  const data = watch("test");
   const selecteds = useSelector(selectedObj);
 
   const onSubmit = (data) => {
+    dispatch(clearSelect());
     if (selecteds?.id) {
       data.id = selecteds.id;
     } else {
       data.id = Date.now();
     }
-
-    console.log(data);
     dispatch(addProduct(data));
+    reset({
+      test: [],
+    });
     reset();
   };
   return (

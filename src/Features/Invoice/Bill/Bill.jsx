@@ -5,7 +5,6 @@ import { useFormContext } from "react-hook-form";
 
 function Bill() {
   const { watch } = useFormContext();
-  const productList = useSelector(selectedProductList);
   const data = watch("test");
 
   const productTotal = data?.reduce((acc, obj) => {

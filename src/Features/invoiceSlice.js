@@ -31,6 +31,9 @@ const invoiceSlice = createSlice({
       const selectedObj = selectedID?.reduce((acc, arr) => (acc = arr), {});
       state.selecteds = selectedObj;
     },
+    clearSelect: (state) => {
+      state.selecteds = {};
+    },
   },
 });
 
@@ -39,6 +42,7 @@ export const selectedProductList = (state) => state.invoiceSlice.productList;
 export const selectedInvoice = (state) => state.invoiceSlice.invoice;
 export const {
   selectProduct,
+  clearSelect,
   addProduct,
   updateProduct,
   addTotal,

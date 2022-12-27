@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 function ProductList() {
   const selecteds = useSelector(selectedObj);
-
   const { control, reset } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
@@ -15,10 +14,13 @@ function ProductList() {
   });
 
   useEffect(() => {
-    reset({
-      test: selecteds?.test,
-    });
-  }, [selecteds?.name]);
+    if (selecteds.name) {
+      reset({
+        test: selecteds.test,
+      });
+    }
+  }, [selecteds.name]);
+
   return (
     <>
       <div className="flex flex-col scrollbar overflow-auto">
