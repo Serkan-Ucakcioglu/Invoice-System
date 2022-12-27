@@ -21,6 +21,10 @@ function ProductList() {
     }
   }, [selecteds.name]);
 
+  useEffect(() => {
+    append({ product: "", quantity: 0, price: 0 });
+  }, []);
+
   return (
     <>
       <div className="flex flex-col scrollbar overflow-auto">
