@@ -41,6 +41,7 @@ const invoiceSlice = createSlice({
   },
 });
 
+// selected List
 export const selectedObj = (state) => state.invoiceSlice.selecteds;
 export const selectedProductList = (state) => state.invoiceSlice.productList;
 export const selectedInvoice = (state) => state.invoiceSlice.invoice;
