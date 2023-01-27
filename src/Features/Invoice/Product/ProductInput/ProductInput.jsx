@@ -72,7 +72,7 @@ function ProductInput({ field, remove, index }) {
             required: "required!",
             min: {
               value: 10,
-              message: "min:1",
+              message: "min:10",
             },
             max: {
               value: 100000,
