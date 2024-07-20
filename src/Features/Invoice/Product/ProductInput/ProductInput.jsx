@@ -45,7 +45,7 @@ function ProductInput({ field, remove, index }) {
           {...register(`data.${index}.quantity`, {
             required: "required!",
             min: {
-              value: 1,
+              value: 0,
               message: "min:1",
             },
             max: {
