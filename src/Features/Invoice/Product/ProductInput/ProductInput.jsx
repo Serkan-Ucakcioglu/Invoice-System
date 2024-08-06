@@ -52,9 +52,6 @@ function ProductInput({ field, remove, index }) {
               value: 1000,
               message: "max:1000",
             },
-            pattern: {
-              value: /[0-9][^a-zA-Z]/g,
-            },
           })}
           className="mr-2 pl-2 w-12 bg-gray-700 h-8 rounded outline-none"
         />
