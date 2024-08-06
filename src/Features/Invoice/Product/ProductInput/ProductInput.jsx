@@ -45,12 +45,15 @@ function ProductInput({ field, remove, index }) {
           {...register(`data.${index}.quantity`, {
             required: "required!",
             min: {
-              value: 0,
+              value: 1,
               message: "min:1",
             },
             max: {
               value: 1000,
               message: "max:1000",
+            },
+            pattern: {
+              value: /^\d+$/,
             },
           })}
           className="mr-2 pl-2 w-12 bg-gray-700 h-8 rounded outline-none"
@@ -69,7 +72,7 @@ function ProductInput({ field, remove, index }) {
             required: "required!",
             min: {
               value: 10,
-              message: "min:10",
+              message: "min:1",
             },
             max: {
               value: 100000,
