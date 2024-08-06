@@ -9,7 +9,7 @@ function Bill() {
     return acc + obj.quantity * obj.price;
   }, 0);
   const total = Number(productTotal);
-  const kdv = (total / 100) * 18;
+  const kdv = Number((total / 100) * 18).toFixed(2);
   return (
     <div className="total mt-4">
       <h1>Billings</h1>

@@ -2,7 +2,7 @@ import React from "react";
 
 function AddBtn({ append }) {
   return (
-    <section>
+    <section className="mt-4">
       <button
         type="button"
         onClick={() => {

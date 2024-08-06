@@ -27,7 +27,7 @@ function ProductList() {
 
   return (
     <>
-      <div className="flex flex-col scrollbar overflow-auto">
+      <div className="flex flex-col justify-center scrollbar overflow-auto">
         {fields?.map((item, index) => {
           return (
             <ProductInput

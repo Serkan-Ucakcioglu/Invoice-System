@@ -9,8 +9,11 @@ function ProductInput({ field, remove, index }) {
     watch,
   } = useFormContext();
 
+  const price =
+    watch("data")[index].quantity * watch("data")[index].price || "";
+
   return (
-    <div className="flex items-center h-8 mt-8">
+    <div className="flex flex-row items-center justify-center h-8 mt-8 h-[200px] ">
       <div className="flex flex-col">
         <input
           id="ürün"
@@ -58,7 +61,7 @@ function ProductInput({ field, remove, index }) {
           })}
           className="mr-2 pl-2 w-12 bg-gray-700 h-8 rounded outline-none"
         />
-        <span className="text-red-500 text-left">
+        <span className="text-red-500 text-center">
           {" "}
           {errors.data?.[index]?.quantity?.message}
         </span>
@@ -91,9 +94,7 @@ function ProductInput({ field, remove, index }) {
         </span>
       </div>
 
-      <div className="text-white">
-        ${watch("data")[index].quantity * watch("data")[index].price || ""}
-      </div>
+      <div className="text-white">${price}</div>
       <div className="ml-auto inline" onClick={() => remove(index)}>
         <TrashSvg />
       </div>
