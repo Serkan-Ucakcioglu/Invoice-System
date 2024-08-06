@@ -35,7 +35,9 @@ function ProductInput({ field, remove, index }) {
           control={control}
           type="text"
           defaultValue={field?.product}
-          className="pl-2 mr-2 bg-gray-700 h-8 rounded outline-none"
+          className={`pl-2 mr-2 bg-gray-700 h-8 rounded outline-none ${
+            errors.data?.[index]?.product && "border-2 border-red-500"
+          }`}
         />
         <span className="text-red-500 text-left">
           {errors.data?.[index]?.product?.message}
@@ -59,7 +61,9 @@ function ProductInput({ field, remove, index }) {
               value: /^\d+$/,
             },
           })}
-          className="mr-2 pl-2 w-12 bg-gray-700 h-8 rounded outline-none"
+          className={`mr-2 pl-2 w-12 outline-none bg-gray-700 h-8 rounded outline-none" ${
+            errors.data?.[index]?.quantity && "border-2 border-red-500"
+          }`}
         />
         <span className="text-red-500 text-center">
           {" "}
@@ -86,7 +90,9 @@ function ProductInput({ field, remove, index }) {
             },
           })}
           defaultValue={field?.price}
-          className="mr-2 pl-2 w-12 px-2 bg-gray-700 h-8 rounded outline-none"
+          className={`mr-2 pl-2 w-12 px-2 bg-gray-700 h-8 rounded outline-none ${
+            errors.data?.[index]?.price && "border-2 border-red-500"
+          }`}
         />
         <span className="text-red-500 text-left">
           {" "}
