@@ -9,13 +9,13 @@ function Bill() {
     return acc + obj.quantity * obj.price;
   }, 0);
   const total = Number(productTotal);
-  const kdv = Number((total / 100) * 18).toFixed(2);
+  const kdv = (total / 100) * 18;
   return (
     <div className="total mt-4">
       <h1>Billings</h1>
       <div className="flex flex-col items-end">
         <span>Price: ${total || 0}</span>
-        <span>Kdv %18:  ${kdv || 0}</span>
+        <span>Kdv %18:  ${Number(kdv).toFixed(2) || 0}</span>
         <span>Total: ${total + kdv || 0}</span>
       </div>
     </div>
