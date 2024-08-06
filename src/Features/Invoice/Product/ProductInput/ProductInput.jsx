@@ -13,8 +13,8 @@ function ProductInput({ field, remove, index }) {
     watch("data")[index].quantity * watch("data")[index].price || "";
 
   return (
-    <div className="flex flex-row items-center justify-center h-8 mt-8 h-[200px] ">
-      <div className="flex flex-col">
+    <div className="flex justify-center mt-8 h-[100px]">
+      <div className="flex flex-col ">
         <input
           id="ürün"
           {...register(`data[${index}].product`, {
@@ -65,7 +65,7 @@ function ProductInput({ field, remove, index }) {
             errors.data?.[index]?.quantity && "border-2 border-red-500"
           }`}
         />
-        <span className="text-red-500 text-center">
+        <span className="text-red-500 text-left">
           {" "}
           {errors.data?.[index]?.quantity?.message}
         </span>
@@ -100,8 +100,8 @@ function ProductInput({ field, remove, index }) {
         </span>
       </div>
 
-      <div className="text-white">${price}</div>
-      <div className="ml-auto inline" onClick={() => remove(index)}>
+      <div className="text-white flex mt-1">${price}</div>
+      <div className="ml-auto mt-2" onClick={() => remove(index)}>
         <TrashSvg />
       </div>
     </div>
